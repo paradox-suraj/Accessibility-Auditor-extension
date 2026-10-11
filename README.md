@@ -11,6 +11,26 @@ Includes optional, privacy-respecting **AI remediation (BYOK)** supporting Googl
 
 ---
 
+## Preview
+
+<p align="center">
+  <img src="docs/screenshots/01-audit-overview.png" alt="Accessibility & Security Auditor Side Panel" width="100%">
+</p>
+
+### Screenshots & Features in Action
+
+| Instant In-Page Audit | Issue Triage & AI Remediation |
+| :---: | :---: |
+| <img src="docs/screenshots/01-audit-overview.png" alt="Instant In-Page Audit" width="100%"> | <img src="docs/screenshots/02-issue-triage-ai-fix.png" alt="Issue Triage and AI Remediation" width="100%"> |
+| **Instant active-tab scan with decoupled A11y and Security scores** | **Triage cards with 1-click Markdown/Jira/Playwright copy & AI fixes** |
+
+| Multi-Page Site Crawler | Full Scan & VPAT Report |
+| :---: | :---: |
+| <img src="docs/screenshots/03-multi-page-crawler.png" alt="Multi-Page Site Crawler" width="100%"> | <img src="docs/screenshots/04-full-scan-report.png" alt="Full Scan and Conformance Report" width="100%"> |
+| **Same-origin BFS crawl with depth limits, robots.txt & live cancellation** | **Comprehensive audit summary & Section 508 VPAT matrix (PDF export)** |
+
+---
+
 ## Features
 
 - **Automated WCAG 2.2 Engine:** Powered by pinned `axe-core 4.10.2`, targeting Level A, AA, 2.1, and 2.2 criteria.
@@ -47,8 +67,8 @@ Includes optional, privacy-respecting **AI remediation (BYOK)** supporting Googl
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/accessibility-auditor-extension.git
-   cd accessibility-auditor-extension
+   git clone https://github.com/paradox-suraj/Accessibility-Auditor-extension.git
+   cd Accessibility-Auditor-extension
    ```
 
 2. Install dependencies:
@@ -106,7 +126,8 @@ npm run zip
 │   ├── remediate.ts     # Multi-provider AI remediation engine
 │   ├── scoring.ts       # Deterministic scoring algorithm
 │   └── securityScanner.ts # Passive headers & cookie analyzer
-├── docs/           # Technical documentation
+├── docs/           # Technical documentation & media
+│   ├── screenshots/     # Extension preview images
 │   ├── DECISIONS.md     # Architecture Decision Records (ADRs)
 │   ├── PERMISSIONS.md   # Least-privilege permissions justification
 │   ├── PRIVACY.md       # Privacy policy
