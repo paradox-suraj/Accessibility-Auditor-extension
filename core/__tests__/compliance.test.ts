@@ -34,6 +34,22 @@ describe('Accessibility Scoring Engine', () => {
     expect(calculateStateScore(heavyFailures)).toBe(0);
   });
 
+  it('does not deduct score penalties for needs-review / incomplete findings', () => {
+    const findingsWithReviews = [
+      { impact: 'serious', confidence: 'needs-review' },
+      { impact: 'critical', confidence: 'needs-review' },
+      { impact: 'moderate', confidence: 'needs-review' },
+    ];
+    // None should penalize the base 100 score
+    expect(calculateStateScore(findingsWithReviews)).toBe(100);
+
+    // Only certain/likely findings should penalize
+    expect(calculateStateScore([
+      ...findingsWithReviews,
+      { impact: 'serious', confidence: 'certain' }, // -5
+    ])).toBe(95);
+  });
+
   it('correctly separates accessibility scores from security scores', () => {
     const mixedFindings: any[] = [
       { type: 'a11y', impact: 'critical' },

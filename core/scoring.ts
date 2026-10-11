@@ -60,13 +60,18 @@ export function normaliseSiteUrl(rawUrl: string): string {
   }
 }
 
-export function calculateStateScore(findings: Array<{ impact: FindingImpact | string }>): number {
+export function calculateStateScore(findings: Array<{ impact: FindingImpact | string; confidence?: string }>): number {
   let critical = 0;
   let serious = 0;
   let moderate = 0;
   let minor = 0;
 
   for (const item of findings) {
+    // Axe-core incomplete items require human judgment and do not deduct automated penalties
+    if (item.confidence === 'needs-review') {
+      continue;
+    }
+
     const impact = item.impact ?? 'minor';
     if (impact === 'critical') critical++;
     else if (impact === 'serious' || impact === 'high') serious++;
